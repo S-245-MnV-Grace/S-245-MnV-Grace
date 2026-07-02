@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Calculate expected intimacy or attraction gains from Game of Vampires item redemptions.">
+    <title>GoV Item Range Calculator</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23211d27'/%3E%3Cpath d='M32 51s-19-12-19-25A11 11 0 0 1 32 18a11 11 0 0 1 19 8c0 13-19 25-19 25Z' fill='%23e0b85c'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="src/app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Game of Vampires: Twilight Sun</p>
+          <h1 id="page-title">Item Range Calculator</h1>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="moon"></span>
+          <span class="cards card-one"></span>
+          <span class="cards card-two"></span>
+          <span class="cards card-three"></span>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Calculator">
+        <div class="tool-top">
+          <div class="segmented" role="tablist" aria-label="Calculator type">
+            <button class="segment is-active" type="button" role="tab" aria-selected="true" data-mode="intimacy">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 21s-7-4.6-9.3-9.2C.5 7.5 3.2 3 7.7 3c2 0 3.5 1 4.3 2.2C12.8 4 14.3 3 16.3 3c4.5 0 7.2 4.5 5 8.8C19 16.4 12 21 12 21Z"/>
+              </svg>
+              Intimacy
+            </button>
+            <button class="segment" type="button" role="tab" aria-selected="false" data-mode="attraction">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m12 2 2.5 6.8 7.2.3-5.6 4.5 1.9 7-6-3.9-6 3.9 1.9-7-5.6-4.5 7.2-.3L12 2Z"/>
+              </svg>
+              Attraction
+            </button>
+          </div>
+
+          <div class="actions">
+            <button class="icon-button" type="button" id="copy-summary" aria-label="Copy current summary">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M8 8h10v12H8z"/>
+                <path d="M6 16H4V4h12v2"/>
+              </svg>
+            </button>
+            <button class="icon-button" type="button" id="reset-current" aria-label="Reset current calculator">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 4v6h6"/>
+                <path d="M20 12a8 8 0 0 1-14.5 4.7"/>
+                <path d="M4.7 10A8 8 0 0 1 19 7.3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="summary-strip" aria-live="polite">
+          <div>
+            <span class="summary-label" id="summary-stat-label">Intimacy range</span>
+            <strong id="summary-range">0</strong>
+          </div>
+          <div>
+            <span class="summary-label">Items entered</span>
+            <strong id="summary-count">0</strong>
+          </div>
+        </div>
+
+        <div id="item-groups" class="item-groups"></div>
+
+        <footer class="source-note">
+          Values sourced from the
+          <a href="https://gameofvampirestwilightsun.fandom.com/wiki/Intimacy_Items">Intimacy Items</a>
+          and
+          <a href="https://gameofvampirestwilightsun.fandom.com/wiki/Attraction_Items">Attraction Items</a>
+          wiki pages.
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
